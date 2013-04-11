@@ -69,12 +69,14 @@ describe('computedStyle', function () {
 
       // Create a stylesheet and append it to the DOM
       // TODO: Try out createElement, whatever quirks mode says, and doc.write
-      document.write('<style>#test-el { color: #00FF00; }</style>');
-      // try {
-      //   var stylesheet = document.createElement('style');
-      //   alert(stylesheet.nodeValue);
-      //   // stylesheet.innerHTML = '#test-el { color: #00FF00; }';
-      // } catch (e) {}
+      try {
+        var stylesheet = document.createElement('style');
+        stylesheet.innerHTML = '#test-el { color: #00FF00; }';
+      } catch (e) {
+        var stylesheet = document.createStyleSheet();
+        stylesheet.addRule('#test-el', 'color: #00FF00;');
+        alert(document.documentElement.innerHTML);
+      }
 
 
       // Save it for later
