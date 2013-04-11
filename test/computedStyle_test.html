@@ -4,12 +4,18 @@
     <link rel="stylesheet" href="../vendor/mocha.css" />
   </head>
   <body>
+    <!-- Load in mocha -->
     <div id="mocha"></div>
     <script src="../vendor/mocha.js"></script>
     <script>
       mocha.ui('bdd');
       mocha.reporter('html');
     </script>
+
+    <!-- Load in computedStyle -->
+    <script src="../lib/computedStyle.js"></script>
+
+    <!-- Load in and run the tests -->
     <script src="computedStyle_test.js"></script>
     <script>
       if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
