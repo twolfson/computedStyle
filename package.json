@@ -27,7 +27,8 @@
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.3.17",
-    "grunt-curl": "~0.5.0"
+    "grunt-curl": "~0.5.0",
+    "mocha": "~1.9.0"
   },
   "keywords": [
     "cross-browser",
@@ -36,16 +37,17 @@
     "css",
     "style"
   ],
-  "testling" : {
-    "files" : "test/*.js",
-    "harness" : "mocha",
-    "browsers" : [
+  "testling": {
+    "files": "test/*.js",
+    "harness": "mocha",
+    "browsers": [
       "ie/6..latest",
       "chrome/20..latest",
       "firefox/10..latest",
       "safari/latest",
       "opera/11.0..latest",
-      "iphone/6", "ipad/6"
+      "iphone/6",
+      "ipad/6"
     ]
   }
 }
