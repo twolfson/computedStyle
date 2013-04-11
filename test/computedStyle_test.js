@@ -61,12 +61,21 @@ describe('computedStyle', function () {
       // Save the element for later
       this.el = el;
 
+      // TODO: Remove this
+      el.innerHTML = 'aaaa';
+
       // Append it to the DOM
       body.appendChild(el);
 
       // Create a stylesheet and append it to the DOM
-      var stylesheet = document.createElement('style');
-      stylesheet.innerHTML = '#test-el { color: #00FF00; }';
+      // TODO: Try out createElement, whatever quirks mode says, and doc.write
+      document.write('<style>#test-el { color: #00FF00; }</style>');
+      // try {
+      //   var stylesheet = document.createElement('style');
+      //   alert(stylesheet.nodeValue);
+      //   // stylesheet.innerHTML = '#test-el { color: #00FF00; }';
+      // } catch (e) {}
+
 
       // Save it for later
       this.stylesheet = stylesheet;
@@ -79,11 +88,11 @@ describe('computedStyle', function () {
       this.color = color;
     });
 
-    after(function () {
-      // Clean up the element and stylesheet
-      body.removeChild(this.el);
-      head.removeChild(this.stylesheet);
-    });
+    // after(function () {
+    //   // Clean up the element and stylesheet
+    //   body.removeChild(this.el);
+    //   head.removeChild(this.stylesheet);
+    // });
 
     it('can find the styles', function () {
       var color = this.color;
