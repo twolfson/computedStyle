@@ -47,7 +47,8 @@ describe('computedStyle', function () {
     it('can find the styles', function () {
       // Color varies from browser to browser. jQuery doesn't tweak it and if we are keeping this single purpose, neithe will I.
       var color = this.color;
-      expect(color).to.match(/^#FF0000|rgb\(255, 0, 0\)$/i);
+      assert(color);
+      assertMatches(color, /^#FF0000|rgb\(255, 0, 0\)$/i);
     });
   });
 
@@ -98,7 +99,8 @@ describe('computedStyle', function () {
 
     it('can find the styles', function () {
       var color = this.color;
-      expect(color).to.match(/^#00FF00|rgb\(0, 255, 0\)$/i);
+      assert(color);
+      assertMatches(color, /^#00FF00|rgb\(0, 255, 0\)$/i);
     });
   });
 
@@ -127,7 +129,7 @@ describe('computedStyle', function () {
 
     it('return the elements z-index', function () {
       var zIndex = this.zIndex;
-      expect(zIndex).to.equal('9001');
+      assertEqual(zIndex, '9001');
     });
   });
 });
