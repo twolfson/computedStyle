@@ -2,12 +2,6 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    // Remote scripts
-    curl: {
-      'vendor/mocha.js': 'https://raw.github.com/visionmedia/mocha/master/mocha.js',
-      'vendor/mocha.css': 'https://raw.github.com/visionmedia/mocha/master/mocha.css'
-    },
-
     // Lint options
     lint: {
       files: ['grunt.js']
@@ -28,9 +22,6 @@ module.exports = function(grunt) {
       }
     }
   });
-
-  // Load in grunt-curl
-  grunt.loadNpmTasks('grunt-curl');
 
   // Default task.
   grunt.registerTask('default', 'lint');

@@ -61,9 +61,6 @@ describe('computedStyle', function () {
       // Save the element for later
       this.el = el;
 
-      // TODO: Remove this
-      el.innerHTML = 'aaaa';
-
       // Append it to the DOM
       body.appendChild(el);
 
