@@ -40,6 +40,7 @@
   ],
   "testling": {
     "files": "test/*.js",
+    "scripts": ["lib/computedStyle.js"],
     "harness": "mocha",
     "browsers": [
       "ie/6..latest",
