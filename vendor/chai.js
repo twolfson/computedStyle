@@ -1,11 +1,19 @@
 !function (name, context, definition) {
+    alert('zz');
   if (typeof require === 'function' && typeof exports === 'object' && typeof module === 'object') {
     module.exports = definition();
+    alert('ww');
   } else if (typeof define === 'function' && typeof define.amd  === 'object') {
     define(function () {
       return definition();
     });
   } else {
+    alert('uu');
+    alert(context);
+    alert(name);
+    alert(definition);
+    alert(definition());
+    alert('nope');
     context[name] = definition();
   }
 }('chai', this, function () {
