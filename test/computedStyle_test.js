@@ -33,7 +33,9 @@ describe('computedStyle', function () {
     });
 
     it('can find the styles', function () {
-      assertEqual(this.color, 'FF0000');
+      // DEV: I don't trust this yet...
+      // assertEqual(this.color, 'FF0000');
+      assertEqual(this.color, 'rgb(255, 0, 0)');
     });
   });
 
@@ -72,7 +74,9 @@ describe('computedStyle', function () {
     });
 
     it('can find the styles', function () {
-      assertEqual(this.color, '00FF00');
+      // DEV: I don't trust this yet...
+      // assertEqual(this.color, '00FF00');
+      assertEqual(this.color, 'rgb(0, 255, 0)');
     });
   });
 });
