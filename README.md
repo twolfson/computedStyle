@@ -26,7 +26,7 @@ computedStyle(element, property);
 /**
  * Cross-browser getComputedStyle
  * @param {HTMLElement} el Element to get property from
- * @param {String} prop Property to look up. This can be in DOM or CSS property format (e.g. z-index, zIndex)
+ * @param {String} prop Property to look up (DOM, zIndex, and CSS, z-index, formats accepted)
  * @returns Property from the browser
  *
  * @note These properties can vary from browser to browser.
