@@ -42,8 +42,8 @@
   "testling": {
     "files": "test/*.js",
     "scripts": [
-      "lib/computedStyle.js",
-      "node_modules/chai/chai.js"
+      "node_modules/chai/chai.js",
+      "lib/computedStyle.js"
     ],
     "harness": "mocha",
     "browsers": [
