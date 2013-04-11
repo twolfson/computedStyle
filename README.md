@@ -23,8 +23,7 @@ _(Coming soon)_
 ## Examples
 _(Coming soon)_
 
-## Release History
-_(Nothing yet)_
+TODO: Depending on outcome of things -- we might need a note about either CSSOM names for `z-index` and such.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint your code using [grunt][grunt] and test via `npm test`.
