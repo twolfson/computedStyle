@@ -22,7 +22,7 @@
     }
   ],
   "scripts": {
-    "test": "testem --file test/testem.json"
+    "test": "testem --file test/testem.json ci"
   },
   "dependencies": {},
   "devDependencies": {
