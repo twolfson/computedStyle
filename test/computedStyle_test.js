@@ -104,12 +104,12 @@ describe('computedStyle', function () {
     });
   });
 
-  describe('querying z-index of an element', function () {
+  describe('querying text-decoration of an element', function () {
     before(function () {
       // Create and style an element
       var el = document.createElement('div');
       // It's over 9000
-      el.style.cssText = 'z-index: 9001;';
+      el.style.cssText = 'text-decoration: underline;';
 
       // Save the element for later
       this.el = el;
@@ -118,8 +118,8 @@ describe('computedStyle', function () {
       body.appendChild(el);
 
       // Query the element for its styles
-      var zIndex = computedStyle(el, 'z-index');
-      this.zIndex = zIndex;
+      var textDecoration = computedStyle(el, 'text-decoration');
+      this.textDecoration = textDecoration;
     });
 
     after(function () {
@@ -127,9 +127,9 @@ describe('computedStyle', function () {
       body.removeChild(this.el);
     });
 
-    it('return the elements z-index', function () {
-      var zIndex = this.zIndex + '';
-      assertEqual(zIndex, '9001');
+    it('return the element\'s text-decoration', function () {
+      var textDecoration = this.textDecoration;
+      assertEqual(textDecoration, 'underline');
     });
   });
 });
