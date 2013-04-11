@@ -1,6 +1,7 @@
 describe('computedStyle', function () {
-  // Localize body
-  var body = document.body;
+  // Localize head and body
+  var head = document.getElementsByTagName('head')[0],
+      body = document.body;
 
   // Create assertEqual method
   function assertEqual(a, b) {
@@ -52,7 +53,12 @@ describe('computedStyle', function () {
       // TODO: Try out createElement, whatever quirks mode says, and doc.write
       var stylesheet = document.createElement('style');
       stylesheet.innerHTML = '#test-el { color: #00FF00; }';
-      window.document.documentElement.childNodes[0].appendChild(stylesheet);
+
+      // Save it for later
+      this.stylesheet = stylesheet;
+
+      // Append the stylesheet to the DOM
+      head.appendChild(stylesheet);
 
       // Query the element for its styles
       var color = computedStyle(el, 'color');
@@ -60,8 +66,9 @@ describe('computedStyle', function () {
     });
 
     after(function () {
-      // Clean up the element
+      // Clean up the element and stylesheet
       body.removeChild(this.el);
+      head.removeChild(this.stylesheet);
     });
 
     it('can find the styles', function () {
