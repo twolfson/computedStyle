@@ -129,6 +129,7 @@ describe('computedStyle', function () {
 
     it('return the elements z-index', function () {
       var zIndex = this.zIndex;
+      alert(typeof zIndex);
       assertEqual(zIndex, '9001');
     });
   });
