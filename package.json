@@ -22,7 +22,7 @@
     }
   ],
   "scripts": {
-    "test": "mocha-phantomjs test/computedStyle.html"
+    "test": "mocha-phantomjs test/computedStyle_test.html"
   },
   "dependencies": {},
   "devDependencies": {
