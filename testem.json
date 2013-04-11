@@ -1,7 +1,4 @@
 {
   "framework": "mocha",
-  "src_files": [
-    "lib/computedStyle.js",
-    "test/computedStyle_test.js"
-  ]
+  "test_page": "test/computedStyle_test.html"
 }

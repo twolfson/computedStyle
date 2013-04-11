@@ -4,12 +4,14 @@
     <link rel="stylesheet" href="../vendor/mocha.css" />
   </head>
   <body>
-    <!-- Load in mocha -->
+    <!-- Load in mocha and testem-->
     <div id="mocha"></div>
     <script src="../vendor/mocha.js"></script>
+    <script src="/testem.js"></script>
+
+    <!-- Configure mocha -->
     <script>
-      mocha.ui('bdd');
-      mocha.reporter('html');
+      mocha.setup('bdd');
     </script>
 
     <!-- Load in computedStyle -->
