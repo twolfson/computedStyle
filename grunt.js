@@ -1,10 +1,11 @@
+/*global module: true*/
 module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
     // Lint options
     lint: {
-      files: ['grunt.js']
+      files: ['grunt.js', 'lib/**/*.js', 'test/**/*.{js,json}']
     },
     jshint: {
       options: {
@@ -19,6 +20,16 @@ module.exports = function(grunt) {
         boss: true,
         eqnull: true,
         browser: true
+      },
+      globals: {
+        // Our library
+        computedStyle: true,
+
+        // Mocha
+        describe: true,
+        it: true,
+        before: true,
+        after: true
       }
     }
   });

@@ -1,26 +1,8 @@
 describe('computedStyle', function () {
-  // Localize head and body
+  // Localize head, body, and expect
   var head = document.getElementsByTagName('head')[0],
-      body = document.body;
-
-  // Create assertion methods
-  function assert(a) {
-    if (!a) {
-      throw new Error('Assertion error: ' + a + ' is falsy');
-    }
-  }
-
-  function assertEqual(a, b) {
-    if (a !== b) {
-      throw new Error('Assertion error: ' + a + ' !== ' + b);
-    }
-  }
-
-  function assertMatches(a, b) {
-    if (!a.match(b)) {
-      throw new Error('Assertion error: ' + a + ' does not match ' + b);
-    }
-  }
+      body = document.body,
+      expect = chai.expect;
 
   describe('querying an inline styled DOM element', function () {
     before(function () {
@@ -102,5 +84,9 @@ describe('computedStyle', function () {
       assert(color);
       assertMatches(color, /^#00FF00|rgb\(0, 255, 0\)$/i);
     });
+  });
+
+  describe('querying z-index of an element', function () {
+
   });
 });

@@ -29,7 +29,8 @@
     "grunt": "~0.3.17",
     "grunt-curl": "~0.5.0",
     "mocha": "~1.9.0",
-    "testem": "~0.2.83"
+    "testem": "~0.2.83",
+    "chai": "~1.5.0"
   },
   "keywords": [
     "cross-browser",
