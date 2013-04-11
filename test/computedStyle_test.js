@@ -1,8 +1,26 @@
 describe('computedStyle', function () {
-  // Localize head, body, and expect
+  // Localize head and body
   var head = document.getElementsByTagName('head')[0],
-      body = document.body,
-      expect = chai.expect;
+      body = document.body;
+
+  // Create assertion methods (at the time of writing Chai does not work in <=IE8)
+  function assert(a) {
+    if (!a) {
+      throw new Error('Assertion error: ' + a + ' is falsy');
+    }
+  }
+
+  function assertEqual(a, b) {
+    if (a !== b) {
+      throw new Error('Assertion error: ' + a + ' !== ' + b);
+    }
+  }
+
+  function assertMatches(a, b) {
+    if (!a.match(b)) {
+      throw new Error('Assertion error: ' + a + ' does not match ' + b);
+    }
+  }
 
   describe('querying an inline styled DOM element', function () {
     before(function () {

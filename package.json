@@ -27,10 +27,8 @@
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.3.17",
-    "grunt-curl": "~0.5.0",
     "mocha": "~1.9.0",
-    "testem": "~0.2.83",
-    "chai": "~1.5.0"
+    "testem": "~0.2.83"
   },
   "keywords": [
     "cross-browser",
@@ -42,8 +40,7 @@
   "testling": {
     "files": "test/*.js",
     "scripts": [
-      "lib/computedStyle.js",
-      "vendor/chai.js"
+      "lib/computedStyle.js"
     ],
     "harness": "mocha",
     "browsers": [
