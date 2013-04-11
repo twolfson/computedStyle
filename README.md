@@ -2,6 +2,8 @@
 
 Cross-browser currentStyle/getComputedStyle implementation
 
+![testling-ci badge](https://ci.testling.com/twolfson/computedStyle.png)
+
 ## Getting Started
 Download the [production version][min] or the [development version][max].
 
