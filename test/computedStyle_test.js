@@ -3,10 +3,22 @@ describe('computedStyle', function () {
   var head = document.getElementsByTagName('head')[0],
       body = document.body;
 
-  // Create assertEqual method
+  // Create assertion methods
+  function assert(a) {
+    if (!a) {
+      throw new Error('Assertion error: ' + a + ' is falsy');
+    }
+  }
+
   function assertEqual(a, b) {
     if (a !== b) {
       throw new Error('Assertion error: ' + a + ' !== ' + b);
+    }
+  }
+
+  function assertMatches(a, b) {
+    if (!a.match(b)) {
+      throw new Error('Assertion error: ' + a + ' does not match ' + b);
     }
   }
 
@@ -33,9 +45,10 @@ describe('computedStyle', function () {
     });
 
     it('can find the styles', function () {
-      // DEV: I don't trust this yet...
-      // assertEqual(this.color, 'FF0000');
-      assertEqual(this.color, 'rgb(255, 0, 0)');
+      // Color varies from browser to browser. jQuery doesn't tweak it and if we are keeping this single purpose, neithe will I.
+      var color = this.color;
+      assert(color);
+      assertMatches(color, /^#FF0000|rgb\(255, 0, 0\)$/);
     });
   });
 
@@ -52,7 +65,6 @@ describe('computedStyle', function () {
       body.appendChild(el);
 
       // Create a stylesheet and append it to the DOM
-      // TODO: Try out createElement, whatever quirks mode says, and doc.write
       var stylesheet = document.createElement('style');
       stylesheet.innerHTML = '#test-el { color: #00FF00; }';
 
@@ -74,9 +86,9 @@ describe('computedStyle', function () {
     });
 
     it('can find the styles', function () {
-      // DEV: I don't trust this yet...
-      // assertEqual(this.color, '00FF00');
-      assertEqual(this.color, 'rgb(0, 255, 0)');
+      var color = this.color;
+      assert(color);
+      assertMatches(color, /^#00FF00|rgb\(0, 255, 0\)$/);
     });
   });
 });

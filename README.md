@@ -27,6 +27,8 @@ _(Coming soon)_
 
 TODO: Depending on outcome of things -- we might need a note about either CSSOM names for `z-index` and such.
 
+TODO: Notes about color output and other projects to write for color normalizing across browsers
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint your code using [grunt][grunt] and test via `npm test`.
 

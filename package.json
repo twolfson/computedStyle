@@ -22,7 +22,7 @@
     }
   ],
   "scripts": {
-    "test": "mocha-phantomjs test/computedStyle_test.html"
+    "test": "testem --file test/testem.json"
   },
   "dependencies": {
     "mocha": "~1.9.0"
