@@ -85,6 +85,31 @@ describe('computedStyle', function () {
   });
 
   describe('querying z-index of an element', function () {
+    before(function () {
+      // Create and style an element
+      var el = document.createElement('div');
+      // It's over 9000
+      el.style.cssText = 'z-index: 9001;';
 
+      // Save the element for later
+      this.el = el;
+
+      // Append it to the DOM
+      body.appendChild(el);
+
+      // Query the element for its styles
+      var zIndex = computedStyle(el, 'z-index');
+      this.zIndex = zIndex;
+    });
+
+    after(function () {
+      // Clean up the element
+      body.removeChild(this.el);
+    });
+
+    it('return the elements z-index', function () {
+      var zIndex = this.zIndex;
+      expect(zIndex).to.equal('9001');
+    });
   });
 });
