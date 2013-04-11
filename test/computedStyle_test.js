@@ -67,34 +67,38 @@ describe('computedStyle', function () {
       // Append it to the DOM
       body.appendChild(el);
 
-      // Create a stylesheet and append it to the DOM
-      // TODO: Try out createElement, whatever quirks mode says, and doc.write
       try {
+        // Create a stylesheet and append it to the DOM
         var stylesheet = document.createElement('style');
         stylesheet.innerHTML = '#test-el { color: #00FF00; }';
+
+        // Save it for later
+        this.stylesheet = stylesheet;
+
+        // Append the stylesheet to the DOM
+        head.appendChild(stylesheet);
       } catch (e) {
+        // If the previous attempt failed, we are in IE8 or lower
+        // Use native IE methods
+        // Reference: http://www.quirksmode.org/dom/w3c_css.html
         var stylesheet = document.createStyleSheet();
         stylesheet.addRule('#test-el', 'color: #00FF00;');
-        alert(document.documentElement.innerHTML);
       }
-
-
-      // Save it for later
-      this.stylesheet = stylesheet;
-
-      // Append the stylesheet to the DOM
-      head.appendChild(stylesheet);
 
       // Query the element for its styles
       var color = computedStyle(el, 'color');
       this.color = color;
     });
 
-    // after(function () {
-    //   // Clean up the element and stylesheet
-    //   body.removeChild(this.el);
-    //   head.removeChild(this.stylesheet);
-    // });
+    after(function () {
+      // Clean up the element and stylesheet
+      body.removeChild(this.el);
+
+      var stylesheet = this.stylesheet;
+      if (stylesheet) {
+        head.removeChild(this.stylesheet);
+      }
+    });
 
     it('can find the styles', function () {
       var color = this.color;
