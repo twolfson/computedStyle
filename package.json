@@ -22,7 +22,7 @@
     }
   ],
   "scripts": {
-    "test": "grunt qunit"
+    "test": "mocha-phantomjs test/computedStyle.html"
   },
   "dependencies": {},
   "devDependencies": {
