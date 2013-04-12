@@ -2,7 +2,7 @@
 module.exports = function(grunt) {
 
   // Helper function to resolve computedStyle
-  var minJs = 'tmp/computedStyle.140.js',
+  var minJs = 'dist/computedStyle.140.js',
       validJs = 'tmp/computedStyle.valid.js';
   function getVars() {
     return {
