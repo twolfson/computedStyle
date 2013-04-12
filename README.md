@@ -9,7 +9,7 @@ Download one of the available flavors:
 
 - [Production version][min]
 - [Development version][max]
-- [CommonJS version][commonjs] (on npm as `computed-style`)
+- [CommonJS version][commonjs] (on `npm install computed-style` or `component install twolfson/computedStyle`)
 - [AMD version][amd]
 - [140 bytes version][140]
 
