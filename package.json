@@ -1,5 +1,5 @@
 {
-  "name": "computedStyle",
+  "name": "computed-style",
   "description": "Cross-browser currentStyle/getComputedStyle implementation",
   "version": "0.1.0",
   "homepage": "https://github.com/twolfson/computedStyle",

@@ -9,7 +9,7 @@ Download one of the available flavors:
 
 - [Production version][min]
 - [Development version][max]
-- [CommonJS version][commonjs]
+- [CommonJS version][commonjs] (on npm as `computed-style`)
 - [AMD version][amd]
 - [140 bytes version][140]
 
