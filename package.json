@@ -28,7 +28,10 @@
   "devDependencies": {
     "grunt": "~0.3.17",
     "mocha": "~1.9.0",
-    "testem": "~0.2.83"
+    "testem": "~0.2.83",
+    "grunt-templater": "0.0.4",
+    "grunt-text-replace": "~0.2.10",
+    "grunt-jsmin-sourcemap": "~1.7.0"
   },
   "keywords": [
     "cross-browser",

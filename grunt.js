@@ -3,6 +3,24 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+    // Trim out comments and whitespace
+    'jsmin-sourcemap': {
+      computedStyle: {
+        src: 'lib/computedStyle.js',
+        dest: 'tmp/computedStyle.comment_free.js',
+      }
+    },
+
+    // Manually compress words for 140 bytes
+    replace: {
+      computedStyle: {
+        src: 'tmp/computedStyle.comment_free.js',
+        dest: 'tmp/computedStyle.140.js',
+        replacements: [{
+        }]
+      }
+    },
+
     // Lint options
     lint: {
       files: ['grunt.js', 'lib/**/*.js', 'test/**/*.{js,json}', 'package.json']
@@ -34,7 +52,15 @@ module.exports = function(grunt) {
     }
   });
 
+  // Load in grunt-templater, grunt-text-replace, and grunt-jsmin-sourcemap
+  grunt.loadNpmTasks('grunt-templater');
+  grunt.loadNpmTasks('grunt-text-replace');
+  grunt.loadNpmTasks('grunt-jsmin-sourcemap');
+
+  // Build task
+  grunt.registerTask('build', 'jsmin-sourcemap replace');
+
   // Default task.
-  grunt.registerTask('default', 'lint');
+  grunt.registerTask('default', 'lint build');
 
 };
