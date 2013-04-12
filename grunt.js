@@ -4,7 +4,8 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     // Trim out comments and whitespace
-    min: {
+    // DEV: Uglify doesn't like partial JS scripts so this would fail
+    'jsmin-sourcemap': {
       computedStyle: {
         src: 'lib/computedStyle.js',
         dest: 'tmp/computedStyle.comment_free.js',
@@ -17,6 +18,14 @@ module.exports = function(grunt) {
         src: 'tmp/computedStyle.comment_free.js',
         dest: 'tmp/computedStyle.140.js',
         replacements: [{
+          // Remove sourcemap comment
+          from: /\/\/.*/,
+          to: ''
+        }, {
+          // Remove line breaks
+          from: /\n/g,
+          to: ''
+        }, {
           // Various word compressions
           from: /el|prop|word|letter/g,
           to: function (word) {
@@ -26,14 +35,6 @@ module.exports = function(grunt) {
           // Deal with getComputedStyle individually due to localization
           from: /([^\.])getComputedStyle/g,
           to: '$1g'
-        }, {
-          // Downgrade computedStyle from valid JS
-          from: 'var computedStyle=',
-          to: ''
-        }, {
-          // Remove ending semicolor
-          from: /;$/,
-          to: ''
         }]
       }
     },
@@ -69,12 +70,13 @@ module.exports = function(grunt) {
     }
   });
 
-  // Load in grunt-templater and grunt-text-replace
+  // Load in grunt-templater, grunt-text-replace, and grunt-jsmin-sourcemap
   grunt.loadNpmTasks('grunt-templater');
   grunt.loadNpmTasks('grunt-text-replace');
+  grunt.loadNpmTasks('grunt-jsmin-sourcemap');
 
   // Build task
-  grunt.registerTask('build', 'min replace');
+  grunt.registerTask('build', 'jsmin-sourcemap replace');
 
   // Default task.
   grunt.registerTask('default', 'lint build');
