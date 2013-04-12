@@ -15,6 +15,7 @@
   "bugs": {
     "url": "https://github.com/twolfson/computedStyle/issues"
   },
+  "main": "dist/computedStyle.commonjs.js",
   "licenses": [
     {
       "type": "MIT",
@@ -44,7 +45,7 @@
   "testling": {
     "files": "test/*.js",
     "scripts": [
-      "lib/computedStyle.js"
+      "dist/computedStyle.js"
     ],
     "harness": "mocha",
     "browsers": [
