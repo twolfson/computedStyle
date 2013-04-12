@@ -1,6 +1,16 @@
 /*global module: true*/
 module.exports = function(grunt) {
 
+  // Helper function to resolve computedStyle
+  var minJs = 'tmp/computedStyle.140.js',
+      validJs = 'tmp/computedStyle.valid.js';
+  function getVars() {
+    return {
+      computedStyle: grunt.file.read(validJs),
+      'computedStyle-140': grunt.file.read(minJs)
+    };
+  }
+
   // Project configuration.
   grunt.initConfig({
     // Trim out comments and whitespace
@@ -16,7 +26,7 @@ module.exports = function(grunt) {
     replace: {
       'computedStyle-140': {
         src: 'tmp/computedStyle.comment_free.js',
-        dest: 'dist/computedStyle.140.js',
+        dest: minJs,
         replacements: [{
           // Remove sourcemap comment
           from: /\/\/.*/,
@@ -40,7 +50,7 @@ module.exports = function(grunt) {
       'computedStyle-valid': {
         // Generate valid JS
         src: 'lib/computedStyle.js',
-        dest: 'tmp/computedStyle.valid.js',
+        dest: validJs,
         replacements: [{
           // Replace the first function with a `var`
           from: /function/,
@@ -51,7 +61,30 @@ module.exports = function(grunt) {
 
     // Generate templates for each flavor
     template: {
-
+      vanilla: {
+        src: 'lib/templates/vanilla.mustache.js',
+        dest: 'dist/computedStyle.js',
+        variables: getVars,
+        engine: 'mustache'
+      },
+      min: {
+        src: 'lib/templates/min.mustache.js',
+        dest: 'dist/computedStyle.min.js',
+        variables: getVars,
+        engine: 'mustache'
+      },
+      amd: {
+        src: 'lib/templates/amd.mustache.js',
+        dest: 'dist/computedStyle.amd.js',
+        variables: getVars,
+        engine: 'mustache'
+      },
+      commonjs: {
+        src: 'lib/templates/commonjs.mustache.js',
+        dest: 'dist/computedStyle.commonjs.js',
+        variables: getVars,
+        engine: 'mustache'
+      }
     },
 
     // Lint options
@@ -91,7 +124,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-jsmin-sourcemap');
 
   // Build task
-  grunt.registerTask('build', 'jsmin-sourcemap replace');
+  grunt.registerTask('build', 'jsmin-sourcemap replace template');
 
   // Default task.
   grunt.registerTask('default', 'lint build');
