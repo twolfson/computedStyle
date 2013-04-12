@@ -36,6 +36,26 @@ module.exports = function(grunt) {
           from: /([^\.])getComputedStyle/g,
           to: '$1g'
         }]
+      },
+      'computedStyle-valid': {
+        // Generate valid JS
+        src: 'lib/computedStyle.js',
+        dest: 'tmp/computedStyle.valid.js',
+        replacements: [{
+          // Replace the first function with a `var`
+          from: /function/,
+          to: 'var computedStyle = function'
+        }]
+      },
+      'computedStyle-window': {
+        // Generate valid JS
+        src: 'lib/computedStyle.js',
+        dest: 'tmp/computedStyle.valid.js',
+        replacements: [{
+          // Replace the first function with a `window.computedStyle`
+          from: /function/,
+          to: 'window.computedStyle = function'
+        }]
       }
     },
 
