@@ -16,7 +16,7 @@ module.exports = function(grunt) {
     replace: {
       'computedStyle-140': {
         src: 'tmp/computedStyle.comment_free.js',
-        dest: 'tmp/computedStyle.140.js',
+        dest: 'dist/computedStyle.140.js',
         replacements: [{
           // Remove sourcemap comment
           from: /\/\/.*/,
@@ -46,17 +46,12 @@ module.exports = function(grunt) {
           from: /function/,
           to: 'var computedStyle = function'
         }]
-      },
-      'computedStyle-window': {
-        // Generate valid JS
-        src: 'lib/computedStyle.js',
-        dest: 'tmp/computedStyle.valid.js',
-        replacements: [{
-          // Replace the first function with a `window.computedStyle`
-          from: /function/,
-          to: 'window.computedStyle = function'
-        }]
       }
+    },
+
+    // Generate templates for each flavor
+    template: {
+
     },
 
     // Lint options

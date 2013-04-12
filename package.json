@@ -31,7 +31,8 @@
     "testem": "~0.2.83",
     "grunt-templater": "0.0.4",
     "grunt-text-replace": "~0.2.10",
-    "grunt-jsmin-sourcemap": "~1.7.0"
+    "grunt-jsmin-sourcemap": "~1.7.0",
+    "mustache": "~0.7.2"
   },
   "keywords": [
     "cross-browser",
