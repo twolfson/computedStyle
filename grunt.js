@@ -18,7 +18,7 @@ module.exports = function(grunt) {
     'jsmin-sourcemap': {
       computedStyle: {
         src: 'lib/computedStyle.js',
-        dest: 'tmp/computedStyle.comment_free.js',
+        dest: 'tmp/computedStyle.comment_free.js'
       }
     },
 
@@ -89,7 +89,7 @@ module.exports = function(grunt) {
 
     // Lint options
     lint: {
-      files: ['grunt.js', 'lib/**/*.js', 'test/**/*.{js,json}', 'package.json']
+      files: ['grunt.js', /*'lib/*.js',*/ 'test/**/*.{js,json}', 'package.json']
     },
     jshint: {
       options: {
