@@ -2,7 +2,7 @@
 
 Cross-browser currentStyle/getComputedStyle implementation
 
-[![testling-ci badge](https://ci.testling.com/twolfson/computedStyle.png)](https://ci.testling.com/wolfson/computedStyle)
+[![testling-ci badge](https://ci.testling.com/twolfson/computedStyle.png)](https://ci.testling.com/twolfson/computedStyle)
 
 ## Getting Started
 Download one of the available flavors:
