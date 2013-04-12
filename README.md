@@ -8,8 +8,8 @@ Cross-browser currentStyle/getComputedStyle implementation
 Download one of the available flavors:
 
 - [Production version][min]
-- [Development version][max]
-- [CommonJS version][commonjs] (on `npm install computed-style` or `component install twolfson/computedStyle`)
+- [Development version][max] - Available via `bower install computedStyle`
+- [CommonJS version][commonjs] - Available via `npm install computed-style` and `component install twolfson/computedStyle`
 - [AMD version][amd]
 - [140 bytes version][140]
 
