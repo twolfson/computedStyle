@@ -1,7 +1,7 @@
 {
   "name": "computed-style",
   "description": "Cross-browser currentStyle/getComputedStyle implementation",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/twolfson/computedStyle",
   "author": {
     "name": "Todd Wolfson",
