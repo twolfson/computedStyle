@@ -1,4 +1,4 @@
-# computedStyle
+# computedStyle [![Donate on Gittip](http://badgr.co/gittip/twolfson.png)](https://www.gittip.com/twolfson/)
 
 Cross-browser currentStyle/getComputedStyle implementation
 
