@@ -1,6 +1,6 @@
 {
   "name": "computedStyle",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "dist/computedStyle.js",
   "ignore": [
     "**/.*",

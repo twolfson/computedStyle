@@ -15,5 +15,6 @@
   "license": "MIT",
   "scripts": [
     "dist/computedStyle.commonjs.js"
-  ]
+  ],
+  "main": "dist/computedStyle.commonjs.js"
 }
