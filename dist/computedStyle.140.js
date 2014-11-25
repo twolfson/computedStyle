@@ -1,1 +1,1 @@
-function(e,p,g){g=window.getComputedStyle;return(g?g(e):e.currentStyle)[p.replace(/-(\w)/gi,function(w,l){return l.toUpperCase()})]}
+function(e,p,g,style,undef){g=window.getComputedStyle;style=g?g(e):e.currentStyle;if(style){return style[p.replace(/-(\w)/gi,function(w,l){return l.toUpperCase();})];}ese{return undef;}}

@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invisible Iframe</title>
+</head>
+<body>
+    <div id="testDiv" style="width: 300px"></div>
+    <script src="../dist/computedStyle.js"></script>
+    <script>
+        window.parent._invisibleIframeTest = computedStyle(document.getElementById('testDiv'), 'width');
+    </script>
+</body>
+</html>

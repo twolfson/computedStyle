@@ -132,4 +132,37 @@ describe('computedStyle', function () {
       assertEqual(textDecoration, 'underline');
     });
   });
+
+  // Firefox edge case, https://bugzilla.mozilla.org/show_bug.cgi?id=548397
+  describe('getting styles from hidden iframe', function () {
+    before(function (done) {
+
+      // Create global communication variable
+      window._invisibleIframeTest = 'unresolved';
+
+      // Create hidden iframe
+      this.iframe = document.createElement('iframe');
+      this.iframe.src = 'invisibleIframe.html';
+      this.iframe.style.display = 'none';
+
+      // Setup is complete when iframe loads
+      this.iframe.onload = function () {
+        done();
+      };
+
+      // Append it to the DOM
+      body.appendChild(this.iframe);
+    });
+
+    after(function () {
+      // Clean up the element and global communication variable
+      body.removeChild(this.iframe);
+      delete window._invisibleIframeTest;
+    });
+
+    it('should compute style to 300px or undefined', function () {
+      assert(window._invisibleIframeTest === '300px' || typeof window._invisibleIframeTest === 'undefined');
+    });
+  });
+
 });
