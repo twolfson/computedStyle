@@ -55,7 +55,7 @@ computedStyle(el, 'background-color');
 ```
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint your code using [grunt][grunt] and test via `npm test`.
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint your code using `npm run lint` and test via `npm test`.
 
 ## License
 Copyright (c) 2013 Todd Wolfson
