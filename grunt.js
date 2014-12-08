@@ -34,6 +34,14 @@ module.exports = function (grunt) {
           from: /\n/g,
           to: ''
         }, {
+          // Remove semicolons
+          from: /([\)\]]);}/g,
+          to: '$1}'
+        }, {
+          // Remove final semicolon
+          from: /;$/,
+          to: ''
+        }, {
           // Various word compressions
           from: /el|prop|word|letter/g,
           to: function (word) {
