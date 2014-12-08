@@ -1,6 +1,4 @@
-/*global module: true*/
 module.exports = function(grunt) {
-
   // Helper function to resolve computedStyle
   var minJs = 'dist/computedStyle.140.js',
       validJs = 'tmp/computedStyle.valid.js';
@@ -85,36 +83,6 @@ module.exports = function(grunt) {
         variables: getVars,
         engine: 'mustache'
       }
-    },
-
-    // Lint options
-    lint: {
-      files: ['grunt.js', /*'lib/*.js',*/ 'test/**/*.{js,json}', 'package.json']
-    },
-    jshint: {
-      options: {
-        curly: true,
-        eqeqeq: true,
-        immed: true,
-        latedef: true,
-        newcap: true,
-        noarg: true,
-        sub: true,
-        undef: true,
-        boss: true,
-        eqnull: true,
-        browser: true
-      },
-      globals: {
-        // Our library
-        computedStyle: true,
-
-        // Mocha
-        describe: true,
-        it: true,
-        before: true,
-        after: true
-      }
     }
   });
 
@@ -127,6 +95,6 @@ module.exports = function(grunt) {
   grunt.registerTask('build', 'jsmin-sourcemap replace template');
 
   // Default task.
-  grunt.registerTask('default', 'lint build');
+  grunt.registerTask('default', 'build');
 
 };
