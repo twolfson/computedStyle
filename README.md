@@ -1,4 +1,4 @@
-# computedStyle [![Donate on Gittip](http://badgr.co/gittip/twolfson.png)](https://www.gittip.com/twolfson/)
+# computedStyle
 
 Cross-browser currentStyle/getComputedStyle implementation
 
@@ -53,6 +53,14 @@ computedStyle(el, 'z-index');
 // Grab the background-color of an element
 computedStyle(el, 'background-color');
 ```
+
+## Donating
+Support this project and [others by twolfson][gratipay] via [gratipay][].
+
+[![Support via Gratipay][gratipay-badge]][gratipay]
+
+[gratipay-badge]: https://cdn.rawgit.com/gratipay/gratipay-badge/2.x.x/dist/gratipay.png
+[gratipay]: https://www.gratipay.com/twolfson/
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint your code using `npm run lint` and test via `npm test`.
