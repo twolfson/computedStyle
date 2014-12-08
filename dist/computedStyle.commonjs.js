@@ -19,9 +19,9 @@ var computedStyle = function (el, prop, getComputedStyle) {
     // https://github.com/jquery/jquery/blob/1.9-stable/src/css.js#L191-L194
     // https://github.com/jquery/jquery/blob/1.9-stable/src/core.js#L593-L597
     prop.replace(/-(\w)/gi, function (word, letter) {
-      return letter.toUpperCase()
+      return letter.toUpperCase();
     })
-  ]
-}
+  ];
+};
 
 module.exports = computedStyle;

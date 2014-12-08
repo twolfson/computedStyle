@@ -1,7 +1,8 @@
+/* global computedStyle: true */
 describe('computedStyle', function () {
   // Localize head and body
-  var head = document.getElementsByTagName('head')[0],
-      body = document.body;
+  var head = document.getElementsByTagName('head')[0];
+  var body = document.body;
 
   // Create assertion methods (at the time of writing Chai does not work in <=IE8)
   function assert(a) {
@@ -45,7 +46,8 @@ describe('computedStyle', function () {
     });
 
     it('can find the styles', function () {
-      // Color varies from browser to browser. jQuery doesn't tweak it and if we are keeping this single purpose, neithe will I.
+      // Color varies from browser to browser. jQuery doesn't tweak it
+      //   and if we are keeping this single purpose, neither will I.
       var color = this.color;
       assert(color);
       assertMatches(color, /^#FF0000|rgb\(255, 0, 0\)$/i);

@@ -1,7 +1,7 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   // Helper function to resolve computedStyle
-  var minJs = 'dist/computedStyle.140.js',
-      validJs = 'tmp/computedStyle.valid.js';
+  var minJs = 'dist/computedStyle.140.js';
+  var validJs = 'tmp/computedStyle.valid.js';
   function getVars() {
     return {
       computedStyle: grunt.file.read(validJs),
@@ -96,5 +96,4 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', 'build');
-
 };
