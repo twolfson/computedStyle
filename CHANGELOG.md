@@ -1,2 +1,4 @@
 # computedStyle changelog
-1.0.0 - Initial release
+0.1.4 - Added `twolfson-style` and fixed up style issues
+
+Before 0.1.4 - See `git log`
