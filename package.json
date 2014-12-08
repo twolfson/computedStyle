@@ -23,7 +23,10 @@
     }
   ],
   "scripts": {
-    "test": "testem --file test/testem.json ci"
+    "precheck": "twolfson-style precheck lib/ test/",
+    "lint": "twolfson-style lint lib/ test/",
+    "pretest": "twolfson-style install",
+    "test": "npm run precheck && testem --file test/testem.json ci && npm run lint"
   },
   "dependencies": {},
   "devDependencies": {
