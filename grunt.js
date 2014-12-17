@@ -1,16 +1,17 @@
 module.exports = function (grunt) {
   // Helper function to resolve computedStyle
-  var minJs = 'dist/computedStyle.140.js';
-  var validJs = 'tmp/computedStyle.valid.js';
+  var computedStyleJs = 'lib/computedStyle.js';
+  var minJs = 'dist/computedStyle.min.js';
   function getVars() {
     return {
-      computedStyle: grunt.file.read(validJs),
-      'computedStyle-140': grunt.file.read(minJs)
+      computedStyle: grunt.file.read(computedStyleJs),
+      'computedStyle-min': grunt.file.read(minJs)
     };
   }
 
   // Project configuration.
   grunt.initConfig({
+    // TODO: Replace `jsmin-sourcemap` + `replace` with `uglifyjs`
     // Trim out comments and whitespace
     // DEV: Uglify doesn't like partial JS scripts so this would fail
     'jsmin-sourcemap': {
@@ -22,7 +23,7 @@ module.exports = function (grunt) {
 
     // Manually compress words for 140 bytes
     replace: {
-      'computedStyle-140': {
+      'computedStyle-min': {
         src: 'tmp/computedStyle.comment_free.js',
         dest: minJs,
         replacements: [{
@@ -52,16 +53,6 @@ module.exports = function (grunt) {
           from: /([^\.])getComputedStyle/g,
           to: '$1g'
         }]
-      },
-      'computedStyle-valid': {
-        // Generate valid JS
-        src: 'lib/computedStyle.js',
-        dest: validJs,
-        replacements: [{
-          // Replace the first function with a `var`
-          from: /function/,
-          to: 'var computedStyle = function'
-        }]
       }
     },
 
@@ -70,12 +61,6 @@ module.exports = function (grunt) {
       vanilla: {
         src: 'lib/templates/vanilla.mustache.js',
         dest: 'dist/computedStyle.js',
-        variables: getVars,
-        engine: 'mustache'
-      },
-      min: {
-        src: 'lib/templates/min.mustache.js',
-        dest: 'dist/computedStyle.min.js',
         variables: getVars,
         engine: 'mustache'
       },

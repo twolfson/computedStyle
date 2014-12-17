@@ -1,1 +1,0 @@
-function(e,p,g,style){g=window.getComputedStyle;style=g?g(e):e.currentStyle;if(style){return style[p.replace(/-(\w)/gi,function(w,l){return l.toUpperCase()})]}}
