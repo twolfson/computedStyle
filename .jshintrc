@@ -23,7 +23,6 @@
   "newcap": true,
   "noarg": true,
   "quotmark": "single",
-  "unused": "vars",
   "maxparams": 4,
   "maxdepth": 5
 }

@@ -24,9 +24,9 @@
   ],
   "scripts": {
     "build": "grunt build",
-    "lint": "twolfson-style lint grunt.js dist/computedStyle.commonjs.js test/",
+    "lint": "twolfson-style lint grunt.js lib/computedStyle.js test/",
     "_pretest": "twolfson-style install",
-    "test": "npm run build && npm run precheck && testem --file test/testem.json ci && npm run lint"
+    "test": "npm run build && testem --file test/testem.json ci && npm run lint"
   },
   "dependencies": {},
   "devDependencies": {

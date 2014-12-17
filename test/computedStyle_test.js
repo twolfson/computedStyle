@@ -138,7 +138,6 @@ describe('computedStyle', function () {
   // Firefox edge case, https://bugzilla.mozilla.org/show_bug.cgi?id=548397
   describe('getting styles from hidden iframe', function () {
     before(function (done) {
-
       // Create global communication variable
       window._invisibleIframeTest = 'unresolved';
 
@@ -166,5 +165,4 @@ describe('computedStyle', function () {
       assert(window._invisibleIframeTest === '300px' || window._invisibleIframeTest === undefined);
     });
   });
-
 });
