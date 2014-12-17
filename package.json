@@ -30,7 +30,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "grunt": "~0.3.17",
+    "grunt": "~0.4.5",
+    "grunt-cli": "~0.1.13",
     "grunt-jsmin-sourcemap": "~1.7.0",
     "grunt-templater": "0.0.4",
     "grunt-text-replace": "~0.2.10",
