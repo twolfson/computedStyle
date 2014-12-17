@@ -40,13 +40,13 @@ module.exports = function (grunt) {
     }
   });
 
-  // Load in grunt-templater, grunt-text-replace, and grunt-jsmin-sourcemap
+  // Load in grunt tasks
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-jsmin-sourcemap');
+  grunt.loadNpmTasks('grunt-templater');
 
-  // Build task
-  grunt.registerTask('build', 'uglify template');
+  // Define common actions
+  grunt.registerTask('build', ['uglify', 'template']);
 
-  // Default task.
-  grunt.registerTask('default', 'build');
+  // Build as the default task
+  grunt.registerTask('default', ['build']);
 };
