@@ -1,7 +1,6 @@
 define(function () {
-  // This code has been refactored for 140 bytes
-// You can see the original here: https://github.com/twolfson/computedStyle/blob/04cd1da2e30fa45844f95f5cb1ac898e9b9ef050/lib/computedStyle.js
-var computedStyle = function (el, prop, getComputedStyle, style) {
+  // DEV: We don't use var but favor parameters since these play nicer with minification
+function computedStyle(el, prop, getComputedStyle, style) {
   getComputedStyle = window.getComputedStyle;
   style =
       // If we have getComputedStyle
@@ -9,7 +8,7 @@ var computedStyle = function (el, prop, getComputedStyle, style) {
         // Query it
         // TODO: From CSS-Query notes, we might need (node, null) for FF
         getComputedStyle(el) :
-   
+
       // Otherwise, we are in IE and use currentStyle
         el.currentStyle;
   if (style) {

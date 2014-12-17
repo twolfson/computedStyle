@@ -11,13 +11,11 @@ Download one of the available flavors:
 - [Development version][max] - Available via `bower install computedStyle`
 - [CommonJS version][commonjs] - Available via `npm install computed-style` and `component install twolfson/computedStyle`
 - [AMD version][amd]
-- [140 bytes version][140]
 
 [min]: https://raw.github.com/twolfson/computedStyle/master/dist/computedStyle.min.js
 [max]: https://raw.github.com/twolfson/computedStyle/master/dist/computedStyle.js
 [commonjs]: https://raw.github.com/twolfson/computedStyle/master/dist/computedStyle.commonjs.js
 [amd]: https://raw.github.com/twolfson/computedStyle/master/dist/computedStyle.amd.js
-[140]: https://raw.github.com/twolfson/computedStyle/master/dist/computedStyle.140.js
 
 In your web page:
 
