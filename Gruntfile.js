@@ -1,58 +1,19 @@
 module.exports = function (grunt) {
   // Helper function to resolve computedStyle
   var computedStyleJs = 'lib/computedStyle.js';
-  var minJs = 'dist/computedStyle.min.js';
   function getVars() {
     return {
-      computedStyle: grunt.file.read(computedStyleJs),
-      'computedStyle-min': grunt.file.read(minJs)
+      computedStyle: grunt.file.read(computedStyleJs)
     };
   }
 
   // Project configuration.
   grunt.initConfig({
-    // TODO: Replace `jsmin-sourcemap` + `replace` with `uglifyjs`
-    // Trim out comments and whitespace
-    // DEV: Uglify doesn't like partial JS scripts so this would fail
-    'jsmin-sourcemap': {
+    // Build minified scripts
+    uglify: {
       computedStyle: {
-        src: 'lib/computedStyle.js',
-        dest: 'tmp/computedStyle.comment_free.js'
-      }
-    },
-
-    // Manually compress words for 140 bytes
-    replace: {
-      'computedStyle-min': {
-        src: 'tmp/computedStyle.comment_free.js',
-        dest: minJs,
-        replacements: [{
-          // Remove sourcemap comment
-          from: /\/\/.*/,
-          to: ''
-        }, {
-          // Remove line breaks
-          from: /\n/g,
-          to: ''
-        }, {
-          // Remove semicolons
-          from: /([\)\]]);}/g,
-          to: '$1}'
-        }, {
-          // Remove final semicolon
-          from: /;$/,
-          to: ''
-        }, {
-          // Various word compressions
-          from: /el|prop|word|letter/g,
-          to: function (word) {
-            return word.charAt(0);
-          }
-        }, {
-          // Deal with getComputedStyle individually due to localization
-          from: /([^\.])getComputedStyle/g,
-          to: '$1g'
-        }]
+        src: computedStyleJs,
+        dest: 'dist/computedStyle.min.js'
       }
     },
 
@@ -80,12 +41,11 @@ module.exports = function (grunt) {
   });
 
   // Load in grunt-templater, grunt-text-replace, and grunt-jsmin-sourcemap
-  grunt.loadNpmTasks('grunt-templater');
-  grunt.loadNpmTasks('grunt-text-replace');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-jsmin-sourcemap');
 
   // Build task
-  grunt.registerTask('build', 'jsmin-sourcemap replace template');
+  grunt.registerTask('build', 'uglify template');
 
   // Default task.
   grunt.registerTask('default', 'build');
