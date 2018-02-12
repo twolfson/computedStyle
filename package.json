@@ -37,7 +37,7 @@
     "jscs": "~1.8.1",
     "jshint": "~2.5.10",
     "mocha": "~1.9.0",
-    "mustache": "~0.7.2",
+    "mustache": "~2.3.0",
     "testem": "~0.2.83",
     "twolfson-style": "~1.6.0"
   },
